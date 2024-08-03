@@ -1,0 +1,18 @@
+https://unpkg.com/
+https://bundlejs.com/
+https://www.jsdelivr.com/package/npm/@byteblaze/core
+
+
+https://unpkg.com/@byteblaze/utils@0.0.1/dist/index.js
+https://cdn.jsdelivr.net/npm/@byteblaze/core@0.0.1/dist/index.min.js
+
+<script src="https://cdn.jsdelivr.net/npm/@byteblaze/core@0.0.1/dist/index.min.js"></script>
+
+
+
+
+
+for badge
+https://deno.bundlejs.com/badge?q=@byteblaze/core@0.0.1
+[![](https://data.jsdelivr.com/v1/package/npm/@byteblaze/core/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@byteblaze/core)
+[![](https://data.jsdelivr.com/v1/package/npm/blaze/badge)](https://www.jsdelivr.com/package/npm/blaze)

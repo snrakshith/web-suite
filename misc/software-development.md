@@ -1,0 +1,24 @@
+Software development
+
+- Functional requirements
+- Non Functional requirements
+  - Reliable
+  - Available
+  - Latency
+  - Affordablity
+  - Accessablity
+  - Platforms to support like web, mobile
+  - Scalable
+  - Performance
+  - Fail Safe systems
+  - Product security
+- Constraints
+  - Budget
+  - Manpower
+  - Time
+  - Risk
+  - Licesencing
+  - Regulatory complanicey
+    - Data storage concent
+    - Privacy of the product
+  - etc

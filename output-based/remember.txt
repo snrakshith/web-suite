@@ -1,0 +1,5 @@
+var => function scoped
+let, const => block scoped
+ 
+ 
+fetch().then().catch()

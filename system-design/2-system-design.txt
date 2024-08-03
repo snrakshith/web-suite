@@ -1,0 +1,7 @@
+Be open to potential Faws
+No vendor specific
+Enhancements
+Principles
+ - Team size
+ - FR's & NFR's
+ - Design patterns => KISS, YAGNI, SOLID

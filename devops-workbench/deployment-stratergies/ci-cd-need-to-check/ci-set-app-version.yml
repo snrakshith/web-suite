@@ -1,0 +1,41 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the TypeScript app
+        run: npm run build
+
+      - name: Extract app version
+        run: echo "::set-env name=APP_VERSION::$(node -p -e "require('./package.json').version")"
+
+      - name: Docker Build and Tag
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          tags: your-dockerhub-username/your-image-name:${{ env.APP_VERSION }}
+
+      - name: Scan Docker image with Trivy
+        run: |
+          docker pull your-dockerhub-username/your-image-name:${{ env.APP_VERSION }}
+          docker run --rm -v $(pwd):/mnt aquasec/trivy:latest --exit-code 0 --no-progress your-dockerhub-username/your-image-name:${{ env.APP_VERSION }}

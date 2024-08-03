@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "editors",
+  "info": {
+    "singularName": "editor",
+    "pluralName": "editors",
+    "displayName": "Editor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "biginteger",
+      "unique": true,
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "min": 15
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "address": {
+      "type": "json",
+      "required": false
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "birth_date": {
+      "type": "date"
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,141 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and test
+        run: npm run build && npm test
+
+      - name: Send build status via email
+        run: echo "Build successful!" | mail -s "Build Status - Success" your-email@example.com
+
+      - name: Send build status to Slack
+        uses: rtCamp/action-slack-notify@v3
+        with:
+          status: success
+          message: "Build successful!"
+          channel: your-slack-channel
+
+  package:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Package
+        run: npm pack
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: "*.tgz"
+
+      - name: Send package status via email
+        run: echo "Package successful!" | mail -s "Package Status - Success" your-email@example.com
+
+      - name: Send package status to Slack
+        uses: rtCamp/action-slack-notify@v3
+        with:
+          status: success
+          message: "Package successful!"
+          channel: your-slack-channel
+
+  release:
+    needs: package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download package artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: package
+
+      - name: Publish to npm registry
+        uses: js-actions/npm@v1
+        with:
+          args: publish *.tgz --access public
+
+      - name: Generate changelog
+        run: npx auto-changelog --package
+
+      - name: Get version
+        id: get_version
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+
+      - name: Create git tag
+        run: git tag v${{ steps.get_version.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine release type
+        id: determine_release_type
+        run: |
+          if [[ "${{ github.ref }}" == "refs/tags/v"* ]]; then
+            echo "::set-output name=release_type::patch"
+          elif [[ "${{ github.ref }}" == "refs/heads/release/major" ]]; then
+            echo "::set-output name=release_type::major"
+          elif [[ "${{ github.ref }}" == "refs/heads/release/minor" ]]; then
+            echo "::set-output name=release_type::minor"
+          fi
+
+      - name: Increment version
+        run: npm version ${{ steps.determine_release_type.outputs.release_type }}
+
+      # - name: Increment version
+      #   run: npm version patch -m "Bump version to %s"
+
+      - name: Push changes
+        run: |
+          git config user.name "Your Name"
+          git config user.email "your-email@example.com"
+          git push --follow-tags
+
+      - name: Send release status via email
+        run: echo "Release successful! Version: ${{ steps.get_version.outputs.version }}" | mail -s "Release Status - Success" your-email@example.com
+
+      - name: Send release status to Slack
+        uses: rtCamp/action-slack-notify@v3
+        with:
+          status: success
+          message: "Release successful! Version: ${{ steps.get_version.outputs.version }}"
+          channel: your-slack-channel

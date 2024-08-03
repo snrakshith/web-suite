@@ -1,0 +1,39 @@
+name: Publish Docker Image to docker hub registry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: <YOUR_AWS_REGION> # Replace with your AWS region
+
+    - name: Get Amazon ECR-Public Credential Helper
+      run: echo "Installing Amazon ECR-Public Credential Helper"
+      shell: bash
+      env:
+        ECR_PUBLIC_HELPER_VERSION: "latest"
+      run: |
+        wget -O /usr/local/bin/docker-credential-ecr-public https://amazon-ecr-credential-helper-releases.s3.us-east-1.amazonaws.com/linux/latest/docker-credential-ecr-public
+        chmod +x /usr/local/bin/docker-credential-ecr-public
+
+    - name: Login to Amazon ECR-Public
+      run: |
+        aws ecr-public get-login-password --region <YOUR_AWS_REGION> | docker login --username AWS --password-stdin public.ecr.aws/<YOUR_ECR_REPO>
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t public.ecr.aws/<YOUR_ECR_REPO>:latest .
+        docker push public.ecr.aws/<YOUR_ECR_REPO>:latest

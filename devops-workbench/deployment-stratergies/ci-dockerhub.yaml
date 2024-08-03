@@ -1,0 +1,30 @@
+name: Publish to docker hub
+
+on:
+  push:
+    branches: ["main"]
+
+# env:
+# IMAGE_TAG: $(node -p -e "require('./package.json').version")"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login Dockerhub
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        # dckr_pat_DwMpysAGJsvVoFX8cDkf6QZM_8Q
+
+      - name: Set app version from package.json
+        run: echo "APP_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
+      - name: Build the Docker image
+        run: docker build -t snrakshith/csh-svc-node:$APP_VERSION .
+
+      - name: Push to Dockerhub
+        run: docker push snrakshith/csh-svc-node:$APP_VERSION

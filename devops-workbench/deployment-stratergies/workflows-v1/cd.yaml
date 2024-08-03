@@ -1,0 +1,42 @@
+name: CD Pipeline
+
+# on:
+#   workflow_run:
+#     workflows: ["CI Pipeline"]
+#     types:
+#       - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      # - name: Pull Docker image
+      #   run: sudo docker pull snrakshith/csh-svc-node:latest
+      # - name: Delete Old docker container
+      #   run: sudo docker rm -f csh-svc-node-container || true
+      # - name: Run Docker Container
+      #   run: sudo docker run -d -p 4000:4000 --name csh-svc-node-container snrakshith/csh-svc-node
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Pull & Run Docker image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: csh-svc-node
+          IMAGE_TAG: dev-${{ github.sha }}
+        run: |
+          # Pull Docker image
+          sudo docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          # Delete Old docker container
+          sudo docker rm -f $ECR_REPOSITORY-container || true
+          # Run Docker Container
+          sudo docker run -d -p 4000:4000 --name $ECR_REPOSITORY-container $ECR_REGISTRY/$ECR_REPOSITORY

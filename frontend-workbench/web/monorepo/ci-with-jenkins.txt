@@ -1,0 +1,1 @@
+https://engineering.contentsquare.com/2022/scaling-ci-with-monorepos/

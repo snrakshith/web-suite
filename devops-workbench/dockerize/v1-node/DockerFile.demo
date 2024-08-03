@@ -1,0 +1,39 @@
+# Specify the base image
+FROM node:14
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the application code
+COPY . .
+
+# Run tests
+RUN npm test
+
+# Perform static code analysis
+RUN eslint .
+
+# Create an artifact (e.g., a build directory)
+RUN npm run build
+
+# Install Trivy for vulnerability scanning
+RUN apt-get update && apt-get install -y wget
+RUN wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add -
+RUN echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | tee -a /etc/apt/sources.list.d/trivy.list
+RUN apt-get update && apt-get install -y trivy
+
+# Scan the artifact with Trivy
+RUN trivy --severity HIGH,CRITICAL --no-progress --format json -o scan-report.json /app/build
+
+# Create the final Docker image
+FROM node:14
+WORKDIR /app
+COPY --from=0 /app/build .
+EXPOSE 3000
+CMD ["node", "index.js"]

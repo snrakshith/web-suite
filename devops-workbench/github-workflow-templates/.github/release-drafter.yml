@@ -1,0 +1,11 @@
+name-template: "v${{ tag_name }}"
+tag-template: "v${{ tag_name }}"
+categories:
+  - title: "Bug Fixes"
+    label: "bug"
+    types:
+      - fix
+  - title: "New Features"
+    label: "feature"
+    types:
+      - feat

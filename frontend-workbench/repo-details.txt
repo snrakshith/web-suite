@@ -1,0 +1,22 @@
+csh-pkg-pipeline  => npm package
+csh-devops-pipeline => k8's,helm
+csh-infra-pipeline => terraform
+
+csh-arch => architecture diagrams
+
+csh-svc-template => ts-express-app (production grade)
+csh-fe-template => ts-react-app (production grade)
+
+csh-telemetry-be => express-app with Observability MELT properties
+
+csh-dbt => data transformations on CSH Data warehouse
+
+csh-uikit => reusable react components
+csh-hooks => reusable react hooks
+csh-utils => reusable non business ts utils
+
+csh-eslint-config => contains eslint config
+csh-prettier-config => contains prettier config
+csh-browserlist-config => contains list of all the browsers that csh-uikit supports
+csh-tsconfig-config => contains tsconfig config
+csh-babel-config => contains babel config

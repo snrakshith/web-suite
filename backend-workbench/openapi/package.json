@@ -1,0 +1,38 @@
+{
+  "name": "openapi",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://openapi-ts.pages.dev/",
+  "type": "module",
+  "proxy": "http://petstore.swagger.io/v1",
+  "scripts": {
+    "my-awesome-script-name": "openapi-generator-cli generate -i docs/openapi.yaml -g typescript-angular -o generated-sources/openapi --additional-properties=ngVersion=6.1.7,npmName=restClient,supportsES6=true,npmVersion=6.9.0,withInterfaces=true",
+    "codegen": "openapi-generator-cli generate -i ./petstore.yaml -g typescript-fetch -o src/generated-sources/openapi --additional-properties=supportsES6=true,npmVersion=9.4.1,typescriptThreePlus=true",
+    "yaml": "ts-node ./templates/yaml.ts",
+    "clean:node": "rm -rf api",
+    "clean": "rimraf api",
+    "generate-types": "npm run clean && openapi-typescript openapi.yaml -o ./api/v1.ts",
+    "test:ts": "tsc --noEmit"
+  },
+  "keywords": [
+    "type-safe",
+    "generate-types",
+    "openapi"
+  ],
+  "author": "Rakshith <snrakshith.97@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.11.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.25",
+    "axios": "^1.6.7",
+    "openapi-fetch": "^0.9.3",
+    "openapi-typescript": "^6.7.4",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
+}

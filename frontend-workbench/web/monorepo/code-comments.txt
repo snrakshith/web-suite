@@ -1,0 +1,33 @@
+/**
+ * RectangleSkeletonLoader is a component that renders a filled rectangle with a loading animation.
+ * It is used to indicate that the content is loading.
+ * @param props.height - The height of the rectangle eg. 20, "20em", "20%". When in number, it is treated as pixels.
+ * @param props.width - The width of the rectangle eg. 30, '100%'. When in number, it is treated as pixels.
+ * @param props.borderRadius - The border radius of the rectangle eg. 4
+ * @param props.margin - The margin of the rectangle eg. '0 10px', '10px 0 0 10px'
+ * @param props.flex - The flex short hand of flex grow, shrink, basis of the rectangle, under flex parent css eg. '1 1 auto'
+ * @default
+ * width: 100% , borderRadius: 8px
+ * @example
+ * <RectangleSkeletonLoader height='100px' />
+ * <RectangleSkeletonLoader height={40} width={100} borderRadius={4} margin='0 10px 0 0' flex='1' />
+ */
+export const RectangleSkeletonLoader = styled(BaseLoader)<RectangleSkeletonLoaderProps>`
+    height: ${(props) => getCorrectSizeDimension(props.height)};
+    width: ${(props) => getCorrectSizeDimension(props.width, '100%')};
+    border-radius: ${(props) => props?.borderRadius ?? 8}px;
+    margin: ${(props) => props?.margin ?? null};
+    flex: ${(props) => props?.flex ?? null};
+`;
+
+
+/**
+ * Returns an array of concurrently commands to run a given script on every platform workspace that contains it.
+ */
+function getPlatformCommands(scriptName) {
+    return getPlatformPackagesContainingCommand(scriptName).map((workspace) => ({
+        command: `npm:${scriptName} --workspace=${workspace}`,
+        name: workspace.substring(workspace.lastIndexOf('/') + 1),
+        prefixColor: getColorForWorkspace(workspace),
+    }));
+}

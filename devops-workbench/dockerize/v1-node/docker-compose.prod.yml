@@ -1,0 +1,13 @@
+version: '3.8'
+
+# In the production, don't try to build it
+# Just reference the image, from an external source
+services:
+  api:
+    build:
+      context: .     
+      target: production 
+    ports:
+      - 4000:4000
+
+

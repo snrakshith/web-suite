@@ -1,0 +1,13 @@
+Scalable
+Relaiable
+Available
+Fail Safe
+Secure
+Easy Maintainance
+Cost Effective
+Affordable
+Fault Tolerant
+Resilency
+Low Latency
+High Throughput
+Failover

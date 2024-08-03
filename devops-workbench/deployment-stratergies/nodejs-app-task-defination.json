@@ -1,0 +1,53 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:681873342152:task-definition/nodejs-app-task-defination:1",
+  "containerDefinitions": [
+    {
+      "name": "test-app",
+      "image": "681873342152.dkr.ecr.ap-south-1.amazonaws.com/csh-svc:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "4000",
+          "containerPort": 4000,
+          "hostPort": 4000,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": []
+    }
+  ],
+  "family": "nodejs-app-task-defination",
+  "networkMode": "awsvpc",
+  "revision": 1,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EC2"],
+  "requiresCompatibilities": ["EC2"],
+  "cpu": "1024",
+  "memory": "3072",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2023-12-28T06:52:33.720Z",
+  "registeredBy": "arn:aws:iam::681873342152:user/sn-csh",
+  "tags": []
+}

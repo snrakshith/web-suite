@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      args:
+        # - DOCKER_TAG=$(cat package.json | jq -r .version)
+        - DOCKER_TAG=$(node -pe "require('./package.json').version")
+    image: docker.io/csh-devops-pipeline:${DOCKER_TAG}
+    ports:
+      - 4000:4000

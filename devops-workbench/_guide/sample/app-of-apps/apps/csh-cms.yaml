@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha
+kind: Application
+metadata:
+  name: csh-cms
+  namespace: argocd
+spec:
+  project: gitops-demo
+  source:
+    repoURL: https://github.com/snrakshith/argo-examples
+    targetRevision: HEAD
+    path: helm-webapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: akuity

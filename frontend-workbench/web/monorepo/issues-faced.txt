@@ -1,0 +1,12 @@
+if .gitignore is not working then use this command
+git rm -r --cached .
+
+
+babel-plugin-styled-components
+
+@babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+
+@babel/plugin-proposal-unicode-property-regex@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead
+
+@babel/plugin-proposal-private-property-in-object@7.21.11: This proposal has been merged to the ECMAScript standard 
+and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.

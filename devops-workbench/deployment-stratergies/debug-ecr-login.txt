@@ -1,0 +1,15 @@
+docker pull 681873342152.dkr.ecr.ap-south-1.amazonaws.com/csh-svc:latest
+
+{
+  "credHelpers": {
+    "681873342152.dkr.ecr.ap-south-1.amazonaws.com": "ecr-login"
+  }
+}
+
+# Log in to ECR using AWS CLI
+$(aws ecr get-login --no-include-email --region ap-south-1)
+
+# Pull the Docker image
+docker pull 681873342152.dkr.ecr.ap-south-1.amazonaws.com/csh-svc:latest
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 681873342152.dkr.ecr.ap-south-1.amazonaws.com
+docker run -d -p 4000:4000 --name node-container snrakshith/myapp

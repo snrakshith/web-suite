@@ -1,0 +1,12 @@
+/node_modules
+/devops
+Dockerfile
+.dockerignore
+.github
+LICENSE
+CHANGELOG.md
+CONTRIBUTING.md
+
+# Clear out
+/docker
+/working

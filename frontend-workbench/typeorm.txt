@@ -1,0 +1,12 @@
+npm i
+typescript 
+ts-node
+pg
+typeorm
+express
+@types/express
+nodemon
+
+"scripts":{
+"dev":"nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts"
+}

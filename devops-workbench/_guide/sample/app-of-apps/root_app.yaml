@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: akuity
+    name: in-cluster
+  project: gitops-demo
+  source:
+    path: apps # contains application spec files
+    repoURL: https://github.com/snrakshith/app-of-apps.git
+    targetRevision: HEAD

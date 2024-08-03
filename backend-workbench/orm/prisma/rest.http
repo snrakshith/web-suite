@@ -1,0 +1,25 @@
+GET http://localhost:3000/api/products
+
+###
+GET http://localhost:3000/api/products/1
+
+###
+POST  http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "name":"iphone 12 max",
+    "price":1162,
+    "quantity":5,
+    "categoryId":1
+}
+
+###
+PATCH   http://localhost:3000/api/products/1
+Content-Type: application/json
+
+{
+    "name":"Dolo 650",
+    "price":50,
+    "categoryId":1
+}
