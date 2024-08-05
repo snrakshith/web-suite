@@ -1,0 +1,21 @@
+https://dev.to/codewithtee/css-media-queries-16mj
+https://modernways.be/myap/it/page/programming/css/CSS%20media-queries.html
+
+
+@media only screen and (min-width: 600px) {...}
+- What this query really means, is
+ “If [device width] is greater than or equal to 600px, then do {…}”
+
+So if the email is opened on an iPhone 5S with a screen width of 320px,
+the media query will not trigger & the styles contained in { … } will not take effect.
+
+
+
+
+@media only screen and (max-width: 600px) {...}
+- What this query really means, is
+ “If [device width] is less than or equal to 600px, then do {…}”
+
+So if the email is opened on an iPhone 5S with a screen width of 320px,
+the media query will trigger & all of the styles contained in { … } will take effect.
+
