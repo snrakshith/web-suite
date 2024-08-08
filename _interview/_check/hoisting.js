@@ -1,13 +1,27 @@
 // https://medium.com/@javvadirupasri8/decoding-javascript-hoisting-a-must-know-concept-for-interviews-c4e23438e93e
 
-// say();
-var say = function () {
-  console.log("hi");
-};
+// Question 1
 
-// console.log(x); // Output: undefined
+say();
+
+// var say = function () {
+//   console.log("hi");      // Output: say is not a function
+// };
+
+function say() {
+  console.log("hi"); // Output: hi
+}
+
+// --------------------------
+
+// Question 2
+
+console.log(x); // Output: undefined
 var x = 5;
 
+// --------------------------
+
+// Question 3
 function greet() {
   console.log("Hello!");
 
