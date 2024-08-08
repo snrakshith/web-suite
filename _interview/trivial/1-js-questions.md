@@ -1,0 +1,34 @@
+## Questions
+
+- How to create an object from functions?
+- Difference btw
+  - normal functions and arrow functions ?
+  - var, let and const ?
+  - deep copy vs shallow copy ?
+  - `promise.all` vs `promise.allSettled` ?
+  - `throttle` vs `debounce` ?
+  - `setTimeout` vs `setInterval` ?
+- What is
+  - different types of `promises` in js ?
+    - `promise.all`
+    - `promise.allSettled`
+    - `promise.any`
+    - `promise.race`
+  - memoization ?
+  - strict mode ?
+  - variable hoisting ?
+  - nested function scope ?
+  - closure ?
+  - currying? or curried function ?
+  - proto keyword ?
+  - prototypical inheritance?
+  - class & extend in js ?
+  - `this` keyword ?
+  - `IIFE` in js ?
+  - `Pure  function` in js ?
+  - `pipe function` and `compose function` in js ?
+  - `async` and `await` in js ?
+  - `iterators` and `iterables` in js ?
+  - `generator functions` in js ?
+  - `Symbols` in js ?
+-

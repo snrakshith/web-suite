@@ -16,8 +16,9 @@
   - some()
   - every()
   - find()
+  - split()
 
-- object
+- functions
 
   - call()
   - bind()
@@ -33,6 +34,10 @@
 - misc
   - flat()
   - memoize()
+  - setInterval()
+  - setTimeout()
+  - debounce()
+  - throttle()
 
 # further reading
 
