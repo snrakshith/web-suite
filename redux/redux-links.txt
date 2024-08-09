@@ -1,0 +1,7 @@
+For integrating 
+- devtools
+https://www.npmjs.com/package/@redux-devtools/extension
+
+- redux-persist
+https://blog.logrocket.com/persist-state-redux-persist-redux-toolkit-react/
+https://stackoverflow.com/questions/63761763/how-to-configure-redux-persist-with-redux-toolkit
