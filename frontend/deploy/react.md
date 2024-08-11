@@ -1,5 +1,9 @@
 # Deploy React app on AWS
 
+# Flow for AWS
+
+- Web => Github Action => S3 => Route53 => CloudFront
+
 ### Section 1
 
 - create a public S3 bucket

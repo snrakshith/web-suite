@@ -54,3 +54,7 @@
   - remote (cloud)
 - Generally statefull applications (DB) are manged outside a K8s cluster
 - K8s administrator or admin/user need to manage the DB related activites like (Backup, restore, etc)
+
+# Simple flow of deployment to k8s cluster
+
+node-app => Dockerfile =>Kustomise or helm chart => Datree => ArgoCD + Kargo => k8s
