@@ -11,3 +11,17 @@
 - Route53
 - EC2
 - Load balancing & Scalability
+
+---
+
+- Ec2
+- EBS
+- ELB
+- ASG
+- SSL -> CA
+- TLS
+
+Scaling
+
+- horizantol => up & down
+- vertical => out(add) & in(remove)
