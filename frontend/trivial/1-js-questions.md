@@ -14,13 +14,17 @@
     - `promise.allSettled`
     - `promise.any`
     - `promise.race`
+  - call, bind and apply ?
   - memoization ?
+  - Higher order function ?
+  - callback function ?
+  - event bubbling , event delegation, event capturing
   - strict mode ?
   - variable hoisting ?
   - nested function scope ?
   - closure ?
   - currying? or curried function ?
-  - proto keyword ?
+  - proto keyword?
   - prototypical inheritance?
   - class & extend in js ?
   - `this` keyword ?

@@ -1,0 +1,24 @@
+what is  Jest?
+
+packages to install 
+> All are development packages only, so 
+npm i -D <package-name>
+
+jest
+@types/jest
+@babel/core
+@babel/preset-env
+babel-jest
+
+
+Section 2
+- Testing should not test the implementation, they should test only the 
+behaviour
+
+- Solitary/loanly test 
+Ex: in case of redux, Test Actions,Reducers, middlewares separately
+- Social tests
+Ex: in case of redux, Test Actions,Reducers, middlewares togather
+
+
+

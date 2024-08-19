@@ -1,0 +1,7 @@
+Maximum Subarray (adding )
+Now, let's find the biggest number you can get by adding up a group of numbers
+ that are next to each other.
+
+Maximum Product Subarray (multiplication)
+Imagine you have a bunch of numbers lined up in a row. You want to find the biggest number
+ you can get by multiplying a group of these numbers that are next to each other.

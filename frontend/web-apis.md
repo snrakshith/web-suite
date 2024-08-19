@@ -5,5 +5,5 @@
 - geolocation
 - websocket
 - webrtc
-- webspppppppeech
+- webspeech
 - canva
