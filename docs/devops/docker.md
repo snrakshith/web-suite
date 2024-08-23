@@ -63,3 +63,116 @@ docker network ls
 - 139 -> Out of memory / SIGSEGV
 - 127 -> Some typos
 - 126 -> Permission error or command not exec
+
+# Dockerfile
+
+```bash
+
+From
+Workdir
+copy
+add
+run
+env
+entrypoint
+CMD
+user
+expose
+
+```
+
+# Cheatsheet
+
+- To build an image from Dockerfile
+
+```bash
+docker build .
+docker build -t express-app .
+```
+
+- To see all images
+
+```bash
+docker images
+```
+
+- To tag an image
+
+```bash
+docker build -t express-app:tag .
+docker build -t express-app:v2 .
+```
+
+```bash
+# Advance
+
+# we can tag a image in 2 ways
+# during build time
+    docker run -t react-app:v3.1.5`
+# after a sucessfull build
+    docker image tag <image-name | id>
+# ex: docker image tag react-app:v3.1.5
+```
+
+- To remove an image
+
+```bash
+# docker image (rm or remove) <image-name>:tag
+
+docker image rm express-app:v2
+
+# Advance
+
+# To remove dangling image
+docker image prune
+docker ps -a
+docker container prune
+
+# To remove a proper image
+docker image rmi express-app:v2
+
+```
+
+- To see all the running containers
+
+```bash
+docker ps
+```
+
+- To stop a container
+
+```bash
+ctrl + c
+```
+
+- To run a container in a detached mode
+
+```bash
+
+docker run -d express-app .
+```
+
+- Give a name to a running container
+
+```bash
+docker run -d --name express-contianer express-app .
+```
+
+- To start a container
+
+```bash
+docker start container-name
+```
+
+- To stop a container
+
+```bash
+docker stop container-name
+docker kill container-name
+```
+
+- To remove a container
+
+```bash
+docker rm container-name
+```
