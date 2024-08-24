@@ -1,0 +1,17 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "description": "```bash\r curl -X GET http://localhost:8001/services\r curl -X GET http://localhost:8001/routes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.4",
+    "express": "^4.19.2",
+    "redis": "^4.7.0"
+  }
+}

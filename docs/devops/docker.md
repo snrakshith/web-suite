@@ -42,6 +42,28 @@ docker network ls
 
 ```
 
+### Save and load
+
+> Its always saves to a current directory
+
+- save
+
+  - docker image save -o react-app.tar <image_name>
+  - ex: docker image save -o react-app.tar react-app:3
+
+- load
+
+  - docker image load -i <tar.file>
+  - ex: docker image load -i react-app.tar
+
+- start a shell session on a container (web)
+- ping other container (api)
+
+- App User
+  - docker exec -it <container_id> sh
+- Root User
+  - docker exec -it -u root <container_id> sh
+
 # Containers
 
 - Starting
@@ -68,18 +90,32 @@ docker network ls
 
 ```bash
 
-From
+From -< os or runtime environment
 Workdir
 copy
-add
-run
+add -> support urls & zip files
+run -> used for running commands during image building
 env
 entrypoint
-CMD
+CMD -> used for running command after build
 user
 expose
 
 ```
+
+- to print env variable
+  - printenv
+  - eco $env_name
+
+---
+
+- cmd is of 2 types
+
+  - shell form ex: `cmd npm run`
+  - cmd exec form ex: `["npm", "run"]`
+
+- entrypoint is same as CMD but can be easily overridden
+  - docker run -it <app_name> echo "hello"
 
 # Cheatsheet
 
@@ -125,12 +161,20 @@ docker image rm express-app:v2
 
 # To remove dangling image
 docker image prune
-docker ps -a
+docker ps -a # show stopped containers
 docker container prune
 
 # To remove a proper image
 docker image rmi express-app:v2
 
+```
+
+- flags
+
+```bash
+docker
+ -v for volume mapping
+ -p for port mapping
 ```
 
 - To see all the running containers

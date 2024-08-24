@@ -11,7 +11,7 @@
 
 ## Complex
 
-- Hashtable
+- Hashmaps
 - Linked list
 - Stacks
 - Queues
@@ -19,6 +19,16 @@
 - Graphs
 
 # Algoritms
+
+- Sorting
+  - Bubble
+  - Selection
+  - Insertion
+  - Merge
+  - Quick
+- Searching
+  - Linear
+  - Binary
 
 # Algoritms types
 

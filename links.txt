@@ -1,0 +1,4 @@
+https://github.com/Sean-Bradley/AWS-SNS-SMS-with-NodeJS
+https://github.com/Abeinevincent
+
+https://dev.to/remrkabledev/testing-with-mongodb-memory-server-4ja2
