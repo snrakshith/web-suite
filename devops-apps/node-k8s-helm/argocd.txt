@@ -1,0 +1,30 @@
+minikube start
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+
+kubectl port-forward service/argocd-server -n argocd 8080:443
+kubectl get all -n argocd
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+Username admin
+Password 27dcxEw84Y5Io9vN
+
+https://github.com/snrakshith/argo-examples
+
+kubectl get pods -n argocd
+kubectl get all -n dev
+
+kubectl port-forward service/myhelmapp 8888:80 -n dev
+
+minikube stop
+kubectl delete namespaces dev
+
+
+
+// Get secrets
+kubectl get secrets -n argocd
+
+// Edit secrets
+kubectl edit secrets argocd-initial-admin-secret -n argocd
