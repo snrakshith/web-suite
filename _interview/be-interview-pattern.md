@@ -1,16 +1,4 @@
-# Frontend
-
-- HTML and HTML form questions
-- CSS
-  - Transform vs transition
-  - Responsive design
-- polyfills
-- output based questions
-- DOM
-- hooks
-  - useMemo
-  - useCallback
-  - useReducer
+# Backend
 
 # Common
 
@@ -28,7 +16,7 @@
 
 - Resume detailing or Questions based on previous project
 
-# Backend
+# Devops
 
 - AWS
 - Docker

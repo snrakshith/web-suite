@@ -1,0 +1,54 @@
+threads
+multi threading
+clustering
+process
+child_process
+
+
+5 node.js intervbiew qestions
+- what is node.js
+- what is a runtime environment
+- what is the difference btw req.params & 
+req.query ? 
+  req.query is nothing but querystring
+
+  https://www.hi.com/posts/1 => 1 is params
+  https://www.hi.com/posts?sort=asc => ? is query
+
+- What is a body-parser & what does it do ?
+
+its a npm pkg that it takes the body of a POST request extracts ,
+and turns it in to a JSON (string to json) specific
+
+- what security mecahnisms are available in Node?
+ - the standard security module in node is helmet
+ some headers x-frame-options 
+cross-site-scripting
+xss protection
+strict -transport-security forcing useers to stay oon https only
+
+===============
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

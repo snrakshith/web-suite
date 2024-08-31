@@ -25,7 +25,7 @@ Array.prototype.customFind = function (cb) {
 
 // Output
 const transform = arr.find((item, index, self) => {
-  return item < 0;
+  return item < 3;
 });
 
 const res = arr.customFind((item) => {
