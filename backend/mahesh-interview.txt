@@ -1,0 +1,14 @@
+Backend interview
+
+output question
+get vs post
+can we pass data in body to get
+call bind apply
+closoure
+arrow function vs normal function
+scope of this in arrow vs normal function
+write a promise
+refactor it to async and await
+
+DSA
+return third highest & third lowest elements in a array without using index

@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: node-app-config
-  namespace: {{ .Values.namespace }}
-data:
-  NODE_ENV: {{ .Values.configmap.NODE_ENV }}
-  PORT: "{{ .Values.configmap.PORT }}"

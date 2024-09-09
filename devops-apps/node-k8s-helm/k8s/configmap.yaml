@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: node-app-config
-  namespace: development  # Ensure it matches the namespace
-data:
-  NODE_ENV: "production"
-  PORT: "3000"
