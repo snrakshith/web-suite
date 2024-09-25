@@ -1,10 +1,12 @@
 /**
- * For looping through Objects we use,
- * - we can 1st convert it to
+ * For looping through Objects it becomes bit tricky as JS doesn't support
+ * looping out of the box so,
+ * - first we have to convert it to an array using any of the methods,
+ *   based on choice
  *      - .keys()
  *      - .values()
  *      - .entires()
- * - Then use for...of loop
+ * - Then we can use for...of loop
  *
  */
 
@@ -32,8 +34,8 @@
 //   console.log("key", key); // [4, 93, 10];
 // }
 
-// for (const key of genderValues) {
-//   console.log("key", key); // [4, 93, 10];
+// for (const value of genderValues) {
+//   console.log("value", value); // [4, 93, 10];
 // }
 
 // for ([key, value] of genderEntries) {

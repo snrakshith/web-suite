@@ -12,7 +12,7 @@
 2. Different MFE's along with there bounded context
    - MFE DataSphere
    - MFE Container, etc
-3. How to use Monorepo tools like tutborepo,
+3. How to use Monorepo tools like turborepo,
    - on how do we identify the git changes in a specifc MFE.
    - CI/CD,
    - linting, testing, ts-config etc

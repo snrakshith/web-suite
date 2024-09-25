@@ -13,6 +13,8 @@ ar.shift(8); // removes
 // Doesn't mutates the original array
 // ar.slice(startIndex,endIndex); => endIndex is excluded
 ar.slice();
+ar.slice(0, 1); // op [1]
+ar.slice(0, 4); // op [ 1, 2, 3, 4 ]
 
 // Does add or remove an element
 // Mutates the original array
@@ -21,3 +23,4 @@ ar.slice();
 // Inside array it starts at 0 index then deletes 2 items returns the new array
 // then adds "a" to the original array
 ar.splice(0, 2, "a");
+// op : [ 1, 2 ]
