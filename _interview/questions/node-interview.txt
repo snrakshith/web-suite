@@ -26,17 +26,3 @@ and turns it in to a JSON (string to json) specific
 cross-site-scripting
 xss protection
 strict -transport-security forcing useers to stay oon https only
-
-===============
-
-
-
-
-
-
-
-
-
-
-
-
