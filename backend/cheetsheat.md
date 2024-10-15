@@ -1,11 +1,12 @@
 # Quick look
 
-- Types of API's
+- Types of API protocols
 
   - RESTFull
-  - Websockets
+  - Websockets/socket.io
   - GraphQL
   - Serverless
+  - Webhook
 
 - Types of Databases
 
