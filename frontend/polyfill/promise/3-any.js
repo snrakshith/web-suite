@@ -73,5 +73,5 @@ Promise.myAny = function (promises) {
 };
 
 Promise.any([t1(), t2(), t3()])
-  .then((res) => console.log("promise", res)) // ["res1","res2"]
+  .then((res) => console.log("promise", res)) // op: "t1 sucessfull"
   .catch((err) => console.log("Error", err));
