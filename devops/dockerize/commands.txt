@@ -1,9 +1,0 @@
-docker build -t golangapp .
-
-docker run -d --name goapp -v $(pwd):/app/src-p 8080:8080 golangapp 
-
-docker kill goapp
-
-docker rm goapp
-
-docker image rm golangapp
