@@ -1,0 +1,61 @@
+name: packages
+
+name: 'Custom Build Action'
+folder path => .github/actions/install.yml
+
+description: 'Checkout code, setup Node.js, install dependencies, and build'
+inputs:
+  message:
+    description: 'Sample message'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install dependencies and build
+      run: |
+        echo ${{ inputs.message }}
+        npm install
+        npm run build
+
+
+
+=======================
+folder path => .github/workflow/dev-shel-mfe.yml
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/**/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Custom action
+        uses: ./.github/actions/install.yml
+        with:
+          message: Install dependencies and build       
+
+      - name: Other steps
+        run: npm run test        
+
+
+
+===================
+Need some info on 4 questions
+1.get node version from .nvmrc file from root 
+2. what types of inputs can i take from use ?
+3.how to set some default values 
+4.how to set or get env variables , github secrets from consumed workflow action in our custom action              

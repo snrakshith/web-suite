@@ -1,0 +1,6 @@
+Build LLMS
+https://sebastianraschka.com/pdf/slides/2024-build-llms.pdf
+
+
+All learning algorithms in 14 mins
+https://www.youtube.com/watch?v=BT6Aw6Q75Yg

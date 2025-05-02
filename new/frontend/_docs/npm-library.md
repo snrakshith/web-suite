@@ -1,0 +1,24 @@
+# npm packages to explore
+
+- react-email
+- zod
+- zustand
+- allotment
+- react-admin
+- react-three-fiber
+- xterm
+- mjml
+- monaco editor
+- tiptap.js
+- react-flow
+- react-scanner
+- css in js
+- react profiler
+- vite
+- size-limit
+- razzle
+- detox
+- rrweb
+- pusd
+- popd
+- locator

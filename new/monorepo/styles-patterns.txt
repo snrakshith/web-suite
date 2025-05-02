@@ -1,0 +1,23 @@
+.radix-themes {
+  &:where([data-panel-background='solid']) {
+    --color-panel: var(--color-panel-solid);
+  }
+  &:where([data-panel-background='translucent']) {
+    --color-panel: var(--color-panel-translucent);
+  }
+}
+
+:::::
+
+[data-accent-color='tomato'] {
+  --color-surface-accent: var(--tomato-surface);
+
+  --accent-1: var(--tomato-1);
+  --accent-2: var(--tomato-2);
+  --accent-3: var(--tomato-3);
+  --accent-4: var(--tomato-4);
+  --accent-5: var(--tomato-5);
+  --accent-6: var(--tomato-6);
+  --accent-7: var(--tomato-7);
+  --accent-8: var(--tomato-8);
+}

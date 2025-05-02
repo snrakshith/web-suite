@@ -1,0 +1,12 @@
+- we are ultimately returning the Document
+- indexes are done always at the Collection level
+- Know the types of Collection
+    - normal
+    - capped
+
+
+
+
+
+Research
+- cursor
